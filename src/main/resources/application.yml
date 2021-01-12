@@ -23,6 +23,18 @@ spring:
   #如果是点对点（queue），那么此处默认应该是false，如果发布订阅，那么一定设置为true
 #  jms:
 #    pub-sub-domain: true
+  redis:
+    host: 192.168.8.132
+    port: 6379
+    password: like1996
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 500
+        min-idle: 0
+    lettuce:
+      shutdown-timeout: 0
 
 mybatis-plus:
   mapper-locations: classpath:/mapper/*Mapper.xml
@@ -46,3 +58,16 @@ mybatis-plus:
     cache-enabled: false
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
+# 连接超时时间
+fdfs:
+  connect-timeout: 600
+# 读取超时时间
+  so-timeout: 1500
+# 缩略图的宽高
+  thumb-image:
+    height: 150
+    width: 150
+# tracker服务配置地址列表，替换成自己服务的IP地址，支持多个
+  tracker-list: 192.168.8.132:22122
+  pool:
+    jmx-enabled: false
